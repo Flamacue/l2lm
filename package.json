@@ -1,0 +1,7 @@
+{
+  "name": "l2lm",
+  "version": "0.0.1",
+  "description": "Shows live music events along with spotify player to sample the music",
+  "author": "flamacue",
+  "license": "MIT"
+}
