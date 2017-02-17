@@ -1,7 +1,13 @@
 {
-  "name": "l2lm",
-  "version": "0.0.1",
-  "description": "Shows live music events along with spotify player to sample the music",
-  "author": "flamacue",
-  "license": "MIT"
+  "name"         : "l2lm",
+  "version"      : "0.1.0",
+  "description"  : "Simple application using Spotify/Seatgeek APIs",
+  "main"         : "server.js",
+  "author"       : "Adam K. Sumner",
+  "dependencies" : {
+    "body-parser"    : "^1.4.3",
+    "express"        : "^4.13.4",
+    "method-override": "^2.1.3",
+    "morgan"         : "^1.1.1"
+  }
 }
