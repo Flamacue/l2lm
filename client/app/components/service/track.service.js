@@ -10,6 +10,6 @@ function TrackService($http) {
     function getTopTracks(artistName) {
       // %20 needs to be +
       // need to test more encodings in the URI
-      return $http.get('/api/'+artistName.replace(' ','+')+"/top-tracks");
+      return $http.get('/api/'+artistName.split(' ').join('+')+"/top-tracks");
     }
 }

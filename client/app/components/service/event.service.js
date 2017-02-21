@@ -8,7 +8,7 @@ function EventService($http) {
     return service;
 
     function getArtistEvents(artistName) {
-      var slug = artistName.replace(" ", "-").toLowerCase();
+      var slug = artistName.split(" ").join("-").toLowerCase();
       return $http.get('/api/'+slug+"/events");
     }
 }
