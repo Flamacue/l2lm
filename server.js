@@ -9,7 +9,6 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 //configuration
-console.log(__dirname+ '/client');
 app.use(express.static(__dirname + '/client/'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
@@ -41,6 +40,10 @@ app.get('/api/:artist/top-tracks', function(req, res){
       search += chunk;
     });
     response.on('end', function () {
+      if (JSON.parse(search).artists.items.length == 0){
+        res.json({"results": {"tracks": [] }});
+        return;
+      }
       var id = JSON.parse(search).artists.items[0].id
       var tracks = "";
       options.path = "/v1/artists/"+id+"/top-tracks?country=US"
