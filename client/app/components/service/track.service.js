@@ -1,6 +1,6 @@
-angular.module('app').factory('TrackService', ['$http', '$sanitize', TrackService]);
+angular.module('app').factory('TrackService', ['$http', TrackService]);
 
-function TrackService($http, $sanitize) {
+function TrackService($http) {
     var service = {
         getTopTracks: getTopTracks
     };

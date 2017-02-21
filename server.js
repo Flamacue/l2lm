@@ -23,13 +23,6 @@ app.get('/api/hello/:name', function(req, res){
   res.json({"hello": req.params.name})
 });
 app.get('/api/:artist/top-tracks', function(req, res){
-  /*
-   * this will provide the top tracks in the US for an artist
-   * the angular code will have the preview urls and make the calls directly
-   * to spotify for the mp3s
-   * having the api calls happen in two places is not ideal so this might
-   * not be the best way to do this...
-   */
   var options = {
     host: spotifyBaseUrl,
     path: "/v1/search?q="+req.params.artist+"&type=artist&limit=1"
