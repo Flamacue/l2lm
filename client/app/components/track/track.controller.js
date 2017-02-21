@@ -1,7 +1,7 @@
 angular.module('app')
-  .controller('TrackController',['TrackService', 'ArtistService', TrackController]);
+  .controller('TrackController',['$sce', 'TrackService', 'ArtistService', TrackController]);
 
-function TrackController(TrackService, ArtistService){
+function TrackController($sce, TrackService, ArtistService){
   var vm = this;
   vm.artist = ArtistService.getArtist;
   vm.loading = false;
@@ -14,6 +14,11 @@ function TrackController(TrackService, ArtistService){
       .then(
         function(response){
           vm.loading = false;
+          for (track in response.data.results.tracks){
+            console.log(response.data.results.tracks[track].preview_url);
+            response.data.results.tracks[track].preview_url = $sce.trustAsResourceUrl(response.data.results.tracks[track].preview_url);
+            console.log(response.data.results.tracks[track].preview_url);
+          }
           vm.topTracks = response.data.results.tracks;
         },
         function(response){

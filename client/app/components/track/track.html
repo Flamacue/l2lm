@@ -5,7 +5,11 @@
   <div ng-repeat="track in trackvm.topTracks">
     <li class="list-group-item">{{ track.name }}</li>
     <ul class="list-group">
-      <li class="list-group-item">{{ track.preview_url }}</li>
+      <li class="list-group-item">
+        <audio controls>
+          <source src="{{ track.preview_url }}" type="audio/mpeg">
+        </audio>
+      </li>
     </ul>
   </div>
 </ul>
