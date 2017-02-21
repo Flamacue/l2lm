@@ -4,6 +4,7 @@ var spotifyBaseUrl = "api.spotify.com";
 var secrets = require('./secrets'); //hiding secrets in separate file
 var https = require('https');
 var express  = require('express');
+var favicon = require('serve-favicon');
 var app  = express();
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
@@ -15,6 +16,7 @@ app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(methodOverride());
+app.use(favicon(__dirname+'/client'+'/assets'+'/img'+'/favicon.ico'));
 
 //routes
 app.get('/api/hello/:name', function(req, res){
