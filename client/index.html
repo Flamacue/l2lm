@@ -10,31 +10,29 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js"></script>
   <script src="app/app.module.js"></script>
   <script src="app/app.routes.js"></script>
+  <script src="app/components/service/event.service.js"></script>
+  <script src="app/components/service/artist.service.js"></script>
+  <script src="app/components/service/track.service.js"></script>
+  <script src="app/components/track/track.controller.js"></script>
+  <script src="app/components/event/event.controller.js"></script>
+  <script src="app/components/search/search.controller.js"></script>
+  <script src="app/components/event/event.directive.js"></script>
+  <script src="app/components/track/track.directive.js"></script>
+  <script src="app/components/search/search.directive.js"></script>
 </head>
 <body>
 <header>
   <nav class="navbar navbar-inverse" style="border-radius:0px">
   <div class="container-fluid">
-      <!-- <div class="navbar-header">
-          <a class="navbar-brand" href="#/">l2lm</a>
-      </div> -->
       <ul class="nav navbar-nav navbar-left">
           <li><a href="#/"><i class="fa fa-home"></i> Home</a></li>
           <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
           <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
       </ul>
-    <form class="navbar-form navbar-right">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Enter artist name"/>
-        <div class="input-group-btn">
-        <button class="btn btn-default" type="submit">
-          <i class="glyphicon glyphicon-search"></i>
-        </button>
-        </div>
-      </div>
-    </form>
+    <search></search>
   </div>
   </nav>
 </header>
