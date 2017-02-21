@@ -1,12 +1,18 @@
 angular.module('app')
-  .controller('TrackController',['$sce', 'TrackService', 'ArtistService', TrackController]);
+  .controller('TrackController',['$rootScope','$sce', 'TrackService',
+                                 'ArtistService', TrackController]);
 
-function TrackController($sce, TrackService, ArtistService){
+function TrackController($rootScope, $sce, TrackService, ArtistService){
   var vm = this;
   vm.artist = ArtistService.getArtist;
   vm.loading = false;
   vm.topTracks = [];
   vm.getTopTracks = getTopTracks;
+
+  //handler for searching events
+  $rootScope.$on('updated-artist', function(event, data){
+      vm.getTopTracks();
+  });
 
   function getTopTracks(){
     vm.loading = true;

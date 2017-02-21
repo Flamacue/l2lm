@@ -1,12 +1,17 @@
 angular.module('app')
-  .controller('EventController', ['EventService', 'ArtistService', EventController]);
+  .controller('EventController', ['$rootScope', 'EventService', 'ArtistService', EventController]);
 
-function EventController(EventService, ArtistService){
+function EventController($rootScope, EventService, ArtistService){
   var vm = this;
   vm.artist = ArtistService.getArtist;
   vm.events = [];
   vm.getEvents = getEvents;
   vm.loading = false;
+
+  //handler for searching events
+  $rootScope.$on('updated-artist', function(event, data){
+      vm.getEvents()
+  });
 
   function getEvents(){
     vm.loading = true;
