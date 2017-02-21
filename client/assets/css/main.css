@@ -33,6 +33,14 @@
     margin-left: 0px;
 }
 
+.navbar-form{
+  width: 40%;
+}
+
+.navbar-right{
+  float: right;
+}
+
 html {
   position: relative;
   min-height: 100%;
